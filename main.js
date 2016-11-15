@@ -18,7 +18,6 @@ require.config({
       deps: ['angular']
     }
   }
-
 });
 
 require(['app'], function(app) {

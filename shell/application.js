@@ -1,57 +1,11 @@
 define([
-  'angular',
-  'uiRouter',
-  'ocLazyLoad'], function(angular) {
-
-  var app = angular.module('mainModule', ['ui.router', 'oc.lazyLoad']);
-
-  app.config(['$ocLazyLoadProvider', '$stateProvider', '$urlRouterProvider',
-    function($ocLazyLoadProvider, $stateProvider, $urlRouterProvider) {
-
-      $ocLazyLoadProvider.config({
-        loadedModules: ['mainModule'],
-        asyncLoader: require
-      });
-
-      $urlRouterProvider.otherwise('/home');
-
-      $stateProvider
-        .state('home', {
-        url: '/home',
-        templateUrl: 'home.html'
-      })
-
-      .state('module1', {
-        url: '/module1',
-        templateUrl: 'module1/module1.html',
-        resolve: {
-          load: function($ocLazyLoad) {
-
-            return $ocLazyLoad.load({
-              name: 'module1',
-              files: ['module1/module.js']
-
-            });
-          }
-        }
-      })
-
-      .state('module2', {
-        url: '/module2',
-        templateUrl: 'module2/module2.html',
-        resolve: {
-          load: function($ocLazyLoad) {
-
-            return $ocLazyLoad.load({
-              name: 'module2',
-              files: ['module2/module.js']
-            });
-          }
-        }
-      });
-
-    }
-  ]);
+  './shell/main-module',
+  './shell/configuration/providers/oc-lazy-load',
+  './shell/configuration/providers/url-router',
+  './shell/configuration/states/home-state',
+  './shell/configuration/states/module1-state',
+  './shell/configuration/states/module2-state',
+], function(app) {
 
   app.bootstrap = function() {
     angular.bootstrap(document, ['mainModule']);
