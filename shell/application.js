@@ -1,4 +1,7 @@
-define([], function() {
+define([
+  'angular',
+  'uiRouter',
+  'ocLazyLoad'], function(angular) {
 
   var app = angular.module('mainModule', ['ui.router', 'oc.lazyLoad']);
 

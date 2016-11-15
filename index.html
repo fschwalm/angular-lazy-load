@@ -1,26 +1,24 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="node_modules/ocLazyLoad/dist/ocLazyLoad.js"></script>
-    <script data-main="main" src="node_modules/requirejs/require.js"></script>
-
+  <base href="/angular-lazy-load/" />
+  <meta charset="UTF-8">
+  <title>Angular 1.5.x - RequireJS - ocLazyLoad</title>
 </head>
+
 <body>
-<div>
+
+  <div ui-view></div>
+  <div>
     <a ui-sref="module1">Lazy Module1</a>
-</div>
+  </div>
 
-<div>
+  <div>
     <a ui-sref="module2">Lazy Module2</a>
-</div>
+  </div>
 
-
-<div ui-view></div>
-
+  <script data-main="main" src="node_modules/requirejs/require.js"></script>
 </body>
+
 </html>
